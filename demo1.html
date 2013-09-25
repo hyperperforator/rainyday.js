@@ -26,7 +26,10 @@
 				window.engine = engine;
 			}
 			function resize() {
-				engine.prepareBackground(20, window.innerWidth, window.innerHeight);
+				clearTimeout(window.resizeTimeout);
+				window.resizeTimeout = setTimeout(function() {
+						engine.prepareBackground(20, window.innerWidth, window.innerHeight);
+				}, 150);
 			}
 		</script>
 	</head>
