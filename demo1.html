@@ -21,10 +21,16 @@
 					engine.preset(5, 5, 0.9),
 					engine.preset(6, 2, 1),
 				], 100);
- 			}
+				
+				// expose engine for resize()
+				window.engine = engine;
+			}
+			function resize() {
+				engine.prepareBackground(20, window.innerWidth, window.innerHeight);
+			}
 		</script>
 	</head>
-	<body onload="demo();">
+	<body onload="demo();" onresize="resize()">
 		<img id="background" src="./pics/night.jpg" />
 		<div id="cholder">
 			<canvas id="canvas"></canvas>
